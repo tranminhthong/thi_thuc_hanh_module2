@@ -2,13 +2,13 @@ package Entities;
 
 public class Contacts {
     private String name;
-    private int phoneNumber;
+    private String phoneNumber;
     private String address;
     private String email;
     private String facebook;
     private String nickname;
 
-    public Contacts(String name, int phoneNumber, String address, String email, String facebook, String nickname) {
+    public Contacts(String name, String phoneNumber, String address, String email, String facebook, String nickname) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.address = address;
@@ -28,11 +28,11 @@ public class Contacts {
         this.name = name;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -75,6 +75,6 @@ public class Contacts {
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", facebook='" + facebook + '\'' +
-                ", nickname='" + nickname+"\n";
+                ", nickname='" + nickname + "\n";
     }
 }

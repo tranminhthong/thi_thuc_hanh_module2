@@ -10,6 +10,7 @@ public class ReadWriteFile {
     private static final String COMMA_DELIMITER = ",";
     private static final String NEW_LINE_SEPARATOR = "\n";
     private static final String FILE_HEADER = "Name,Phone Number,Address,Email,Facebook,Nickname";
+
     public static void writeToFileCsv(List<Contacts> contacts, String pathFile) {
         FileWriter fileWriter = null;
         try {
@@ -63,18 +64,18 @@ public class ReadWriteFile {
         }
     }
 
-    public static List<Contacts> readCSV(String pathFile){
+    public static List<Contacts> readCSV(String pathFile) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(pathFile));
             String line;
             ArrayList<Contacts> contacts = new ArrayList<>();
             while ((line = br.readLine()) != null) {
                 String[] cols = line.split(",");
-                if (cols[0].equals("Name")){
-                }else {
+                if (cols[0].equals("Name")) {
+                } else {
                     Contacts c = new Contacts();
                     c.setName(cols[0]);
-                    c.setPhoneNumber(Integer.parseInt(cols[1]));
+                    c.setPhoneNumber(cols[1]);
                     c.setAddress(cols[2]);
                     c.setEmail(cols[3]);
                     c.setFacebook(cols[4]);
@@ -83,7 +84,7 @@ public class ReadWriteFile {
                 }
             }
             return contacts;
-        }catch (IOException io){
+        } catch (IOException io) {
             io.printStackTrace();
         }
         return null;

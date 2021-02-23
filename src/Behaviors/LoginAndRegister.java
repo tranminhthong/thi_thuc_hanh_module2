@@ -10,7 +10,6 @@ public class LoginAndRegister {
 
     private static final String PATH = "C:\\Users\\thait\\OneDrive\\Desktop\\case\\thi_thuc_hanh_module2\\src\\login.dat";
     static List<User> users = (List<User>) ReadWriteFile.readFromFile(PATH);
-    ;
 
     public static void login(String userName, String password) throws Exception {
         for (User user : users) {
@@ -54,9 +53,15 @@ public class LoginAndRegister {
         throw new Exception("User not exist!!!");
     }
 
-    public static boolean checkEmail(String email){
+    public static boolean checkEmail(String email) {
         Pattern pattern = Pattern.compile("([A-Za-z0-9-_.]+@[A-Za-z0-9-_]+(?:\\.[A-Za-z0-9]+)+)");
         Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    public static boolean checkPhoneNumber(String phoneNumber) {
+        Pattern pattern = Pattern.compile("^(1[ \\-\\+]{0,3}|\\+1[ -\\+]{0,3}|\\+1|\\+)?((\\(\\+?1-[2-9][0-9]{1,2}\\))|(\\(\\+?[2-8][0-9][0-9]\\))|(\\(\\+?[1-9][0-9]\\))|(\\(\\+?[17]\\))|(\\([2-9][2-9]\\))|([ \\-\\.]{0,3}[0-9]{2,4}))?([ \\-\\.][0-9])?([ \\-\\.]{0,3}[0-9]{2,4}){2,3}$");
+        Matcher matcher = pattern.matcher(phoneNumber);
         return matcher.matches();
     }
 }

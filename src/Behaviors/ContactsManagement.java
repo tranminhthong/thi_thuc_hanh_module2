@@ -14,17 +14,17 @@ public class ContactsManagement {
         ReadWriteFile.writeToFileCsv(contacts, PATH_FILE);
     }
 
-    public void update(int phoneNumber, String name) {
+    public void update(String phoneNumber, String name) {
         for (Contacts c : contacts) {
-            if (c.getPhoneNumber() == phoneNumber) {
+            if (c.getPhoneNumber().equals(phoneNumber)) {
                 c.setName(name);
             }
         }
         ReadWriteFile.writeToFileCsv(contacts, PATH_FILE);
     }
 
-    public void delete(int phoneNumber) {
-        contacts.removeIf(c -> c.getPhoneNumber() == phoneNumber);
+    public void delete(String phoneNumber) {
+        contacts.removeIf(c -> c.getPhoneNumber().equals(phoneNumber));
         ReadWriteFile.writeToFileCsv(contacts, PATH_FILE);
     }
 
@@ -32,7 +32,6 @@ public class ContactsManagement {
         for (Contacts c : contacts) {
             System.out.print(c);
         }
-
     }
 
     public List<Contacts> searchByName(String name) throws Exception {
@@ -42,15 +41,16 @@ public class ContactsManagement {
                 contacts1.add(c);
             }
         }
-        if (contacts1.size()==0) throw new Exception("Not exist!!");
+        if (contacts1.size() == 0) throw new Exception("Not exist!!");
         return contacts1;
     }
 
-    public void check(int phone) throws Exception {
+    public void check(String phone) throws Exception {
         boolean checkPhone = false;
-        for (Contacts c: contacts){
-            if (c.getPhoneNumber()==phone){
+        for (Contacts c : contacts) {
+            if (c.getPhoneNumber().equals(phone)) {
                 checkPhone = true;
+                break;
             }
         }
         if (!checkPhone) {

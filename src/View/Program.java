@@ -22,7 +22,6 @@ public class Program {
                 int choices = Integer.parseInt(sc.nextLine());
                 if (choices == 1) {
                     Menus.login();
-                    boolean exit = true;
                     do {
                         System.out.print("-------Contacts Management------" +
                                 "\n1: Display all contacts" +
@@ -46,7 +45,7 @@ public class Program {
                                     break;
                                 case 3:
                                     System.out.println("Enter phone number: ");
-                                    int phoneNumber = Integer.parseInt(sc.nextLine());
+                                    String phoneNumber = sc.nextLine();
                                     cm.check(phoneNumber);
                                     System.out.println("Enter name: ");
                                     String name = sc.nextLine();
@@ -54,7 +53,7 @@ public class Program {
                                     break;
                                 case 4:
                                     System.out.println("Enter phone number delete: ");
-                                    int phoneNumber1 = Integer.parseInt(sc.nextLine());
+                                    String phoneNumber1 = sc.nextLine();
                                     cm.delete(phoneNumber1);
                                     break;
                                 case 5:
@@ -67,21 +66,19 @@ public class Program {
                                     ReadWriteFile.readFromFileCsv(pathFile);
                                     break;
                                 case 7:
-                                    exit = false;
-                                    break;
+                                    System.exit(1);
                                 case 8:
                                     continue login;
                             }
                         } catch (Exception e) {
                             System.err.println(e.getMessage());
                         }
-
-                    } while (exit);
+                    } while (true);
                 } else if (choices == 2) {
                     Menus.register();
-                }else if (choices==3){
+                } else if (choices == 3) {
                     LoginAndRegister.show();
-                }else if (choices==4){
+                } else if (choices == 4) {
                     String username = sc.nextLine();
                     LoginAndRegister.delete(username);
                 }
