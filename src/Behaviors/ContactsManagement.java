@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactsManagement {
-    private static final String PATH_FILE = "C:\\Users\\thait\\OneDrive\\Desktop\\case\\src\\Contacts.csv";
+    private static final String PATH_FILE = "C:\\Users\\thait\\OneDrive\\Desktop\\case\\thi_thuc_hanh_module2\\src\\Contacts.csv";
     static ArrayList<Contacts> contacts = (ArrayList<Contacts>) ReadWriteFile.readCSV(PATH_FILE);
 
     public void add(Contacts c) {

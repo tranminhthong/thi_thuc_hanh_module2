@@ -63,7 +63,7 @@ public class Program {
                                     System.out.println(cm.searchByName(name1));
                                     break;
                                 case 6:
-                                    String pathFile = "C:\\Users\\thait\\OneDrive\\Desktop\\case\\src\\Contacts.csv";
+                                    String pathFile = "C:\\Users\\thait\\OneDrive\\Desktop\\case\\thi_thuc_hanh_module2\\src\\Contacts.csv";
                                     ReadWriteFile.readFromFileCsv(pathFile);
                                     break;
                                 case 7:

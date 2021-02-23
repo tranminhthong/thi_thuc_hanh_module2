@@ -3,10 +3,12 @@ package Behaviors;
 import Entities.User;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LoginAndRegister {
 
-    private static final String PATH = "C:\\Users\\thait\\OneDrive\\Desktop\\case\\src\\login.dat";
+    private static final String PATH = "C:\\Users\\thait\\OneDrive\\Desktop\\case\\thi_thuc_hanh_module2\\src\\login.dat";
     static List<User> users = (List<User>) ReadWriteFile.readFromFile(PATH);
     ;
 
@@ -50,5 +52,11 @@ public class LoginAndRegister {
             }
         }
         throw new Exception("User not exist!!!");
+    }
+
+    public static boolean checkEmail(String email){
+        Pattern pattern = Pattern.compile("([A-Za-z0-9-_.]+@[A-Za-z0-9-_]+(?:\\.[A-Za-z0-9]+)+)");
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 }

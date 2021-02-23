@@ -16,8 +16,13 @@ public class Menus {
        contact.setPhoneNumber(Integer.parseInt(sc.nextLine()));
        System.out.println("Enter address: ");
        contact.setAddress(sc.nextLine());
-       System.out.println("Enter email: ");
-       contact.setEmail(sc.nextLine());
+       System.out.println("Enter email(Note: example@example.com): ");
+       String email = sc.nextLine();
+       if (LoginAndRegister.checkEmail(email)) contact.setEmail(email);
+       else {
+           System.err.println("Email: example@example.com");
+           getInfoContact();
+       }
        System.out.println("Enter facebook: ");
        contact.setFacebook(sc.nextLine());
        System.out.println("Enter nickname: ");
